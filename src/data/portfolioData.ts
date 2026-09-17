@@ -16,7 +16,7 @@ export const PERSONAL_PROFILE = {
   headline: "Detail-oriented Manual QA Tester with 1.5 years of professional experience in functional, regression, API, and integration testing across web and client applications.",
   emailPlaceholder: "Praveenkumarp2342001@gmail.com",
   linkedinPlaceholder: "https://www.linkedin.com/in/praveen-kumar-p-4535b52a6/",
-  githubPlaceholder: "[https://github.com/your-username]",
+  githubPlaceholder: ""https://github.com/Praveenkumar2342001?tab=repositories",",
   actualUserEmail: "praveenkumarp2342001@gmail.com",
 };
 
