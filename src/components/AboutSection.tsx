@@ -55,13 +55,13 @@ export const AboutSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Card 2: 2 Years Testing Experience */}
+          {/* Card 2: 1.5 Years Testing Experience */}
           <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-xs flex flex-col justify-between hover:border-slate-300 transition-colors">
             <div>
               <div className="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center mb-4 border border-emerald-100">
                 <Clock className="w-5 h-5" />
               </div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">2 Years Testing Experience</h3>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">1.5 Years Testing Experience</h3>
               <p className="text-sm text-slate-600 leading-relaxed">
                 {ABOUT_ME.testingExperience}
               </p>

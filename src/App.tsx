@@ -10,7 +10,6 @@ import { AboutSection } from './components/AboutSection';
 import { SkillsSection } from './components/SkillsSection';
 import { ExperienceSection } from './components/ExperienceSection';
 import { ProjectsSection } from './components/ProjectsSection';
-import { TestCaseShowcase } from './components/TestCaseShowcase';
 import { BugReportShowcase } from './components/BugReportShowcase';
 import { ApiTestingSection } from './components/ApiTestingSection';
 import { ContactSection } from './components/ContactSection';
@@ -145,10 +144,7 @@ export default function App() {
         {/* 5. Projects */}
         <ProjectsSection />
 
-        {/* 6. Test Case Showcase */}
-        <TestCaseShowcase />
-
-        {/* 7. Bug Report Showcase */}
+        {/* 6. Bug Report Showcase */}
         <BugReportShowcase />
 
         {/* 8. API Testing */}

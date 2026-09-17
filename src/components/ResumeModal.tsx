@@ -73,7 +73,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
                 {candidateName || PERSONAL_PROFILE.name}
               </h1>
               <p className="text-base font-bold text-emerald-700 mt-0.5">
-                {PERSONAL_PROFILE.role} • 2 Years Professional Experience
+                {PERSONAL_PROFILE.role} • {PERSONAL_PROFILE.experience} Professional Experience
               </p>
               <div className="flex flex-wrap items-center gap-3 text-slate-500 mt-2 text-xs">
                 <span className="flex items-center gap-1">
@@ -120,7 +120,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
           {/* Experience */}
           <div>
             <h4 className="font-bold text-slate-900 uppercase tracking-wider text-[11px] mb-2 text-emerald-800">
-              Professional Experience (2 Years)
+              Professional Experience (1.5 Years)
             </h4>
             {PROFESSIONAL_EXPERIENCES.map((exp) => (
               <div key={exp.id} className="p-4 rounded-lg border border-slate-200 space-y-2">

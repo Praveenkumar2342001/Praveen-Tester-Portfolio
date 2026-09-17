@@ -11,9 +11,9 @@ import {
 export const PERSONAL_PROFILE = {
   name: "Praveen Kumar P",
   role: "Manual QA Tester",
-  experience: "2 Years",
+  experience: "1.5 Years",
   location: "Chennai,India",
-  headline: "Detail-oriented Manual QA Tester with 2 years of professional experience in functional, regression, API, and integration testing across web and client applications.",
+  headline: "Detail-oriented Manual QA Tester with 1.5 years of professional experience in functional, regression, API, and integration testing across web and client applications.",
   emailPlaceholder: "Praveenkumarp2342001@gmail.com",
   linkedinPlaceholder: "https://www.linkedin.com/in/praveen-kumar-p-4535b52a6/",
   githubPlaceholder: "[https://github.com/your-username]",
@@ -22,9 +22,9 @@ export const PERSONAL_PROFILE = {
 
 export const ABOUT_ME = {
   summary:
-    "Manual QA Tester with 2 years of hands-on professional experience ensuring software stability, functional accuracy, and user experience consistency. Experienced in requirement analysis, test scenario preparation, test case execution, defect tracking, and sprint-based validation across multi-tier web applications.",
+    "Manual QA Tester with 1.5 years of hands-on professional experience ensuring software stability, functional accuracy, and user experience consistency. Experienced in requirement analysis, test scenario preparation, test case execution, defect tracking, and sprint-based validation across multi-tier web applications.",
   testingExperience:
-    "Over 2 years of structured software testing lifecycle (STLC) practice executing functional, smoke, sanity, regression, integration, and UI testing. Proven track record in uncovering high-severity functional bugs, validating edge cases, verifying backend REST API responses using Postman, and querying relational databases with SQL to audit data integrity.",
+    "Over 1.5 years of structured software testing lifecycle (STLC) practice executing functional, smoke, sanity, regression, integration, and UI testing. Proven track record in uncovering high-severity functional bugs, validating edge cases, verifying backend REST API responses using Postman, and querying relational databases with SQL to audit data integrity.",
   agileExperience:
     "Active participant in Agile/Scrum ceremonies, including sprint planning, daily stand-up meetings, sprint review, backlog refinement, and sprint retrospectives. Collaborated closely with product owners, business analysts, and software developers to clarify acceptance criteria and facilitate timely bug fixes."
 };
@@ -116,8 +116,8 @@ export const PROFESSIONAL_EXPERIENCES: ExperienceItem[] = [
   {
     id: "exp-1",
     role: "Manual QA Tester",
-    companyPlaceholder: "[Company Name / IT Services Organization]",
-    period: "[Month, Year] – Present (2 Years Total QA Experience)",
+    companyPlaceholder: "Negits Solution",
+    period: "[JUNE, 2025] – Present (1.5 Years Total QA Experience)",
     location: "India [City / Work-From-Home]",
     summary:
       "Responsible for end-to-end manual testing of enterprise web applications within an active Agile/Scrum delivery environment. Partnered with developers, product owners, and business analysts to deliver bug-free sprint increments.",

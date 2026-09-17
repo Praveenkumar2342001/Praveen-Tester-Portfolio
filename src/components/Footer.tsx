@@ -29,7 +29,7 @@ export const Footer: React.FC<FooterProps> = ({ candidateName }) => {
               </span>
             </div>
             <p className="text-slate-400 max-w-md text-xs leading-relaxed">
-              Professional software testing portfolio showcasing 2 years of manual QA experience,
+              Professional software testing portfolio showcasing 1.5 years of manual QA experience,
               functional test execution, Jira defect tracking, Postman API testing, and backend database verification.
             </p>
             <div className="flex items-center gap-4 text-[11px] text-slate-500 pt-1">
@@ -40,7 +40,7 @@ export const Footer: React.FC<FooterProps> = ({ candidateName }) => {
               <span>•</span>
               <span className="flex items-center gap-1">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
-                2 Years Experience
+                1.5 Years Experience
               </span>
             </div>
           </div>
@@ -51,11 +51,6 @@ export const Footer: React.FC<FooterProps> = ({ candidateName }) => {
               QA Artifacts
             </h4>
             <ul className="space-y-2 text-xs">
-              <li>
-                <a href="#test-cases" className="hover:text-emerald-400 transition-colors">
-                  Test Case Repository
-                </a>
-              </li>
               <li>
                 <a href="#bug-reports" className="hover:text-emerald-400 transition-colors">
                   Jira Bug Reports

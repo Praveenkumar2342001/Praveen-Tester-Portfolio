@@ -15,7 +15,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResumePreview }) => {
     { id: 'skills', label: 'Skills' },
     { id: 'experience', label: 'Experience' },
     { id: 'projects', label: 'Projects' },
-    { id: 'test-cases', label: 'Test Cases' },
     { id: 'bug-reports', label: 'Jira Bugs' },
     { id: 'api-testing', label: 'API Testing' },
     { id: 'contact', label: 'Contact' },
@@ -93,7 +92,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResumePreview }) => {
                   QA Portfolio
                 </span>
                 <span className="hidden sm:inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
-                  2 Yrs Exp
+                  1.5 Yrs Exp
                 </span>
               </div>
               <p className="text-xs text-slate-500 font-medium">Manual QA Tester</p>

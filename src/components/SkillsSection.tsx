@@ -147,7 +147,7 @@ export const SkillsSection: React.FC = () => {
               </div>
 
               <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400">
-                <span>Verified in 2-year tenure</span>
+                <span>Verified in 1.5-year tenure</span>
                 <span className="font-semibold text-emerald-700">
                   {cat.skills.length} Items
                 </span>

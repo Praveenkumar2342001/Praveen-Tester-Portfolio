@@ -24,7 +24,7 @@ export const ExperienceSection: React.FC = () => {
             Professional Experience
           </h2>
           <p className="mt-2 text-base text-slate-600">
-            2 years of dedicated manual quality assurance practice across the software testing life cycle (STLC).
+            1.5 years of dedicated manual quality assurance practice across the software testing life cycle (STLC).
           </p>
         </div>
 
@@ -51,7 +51,7 @@ export const ExperienceSection: React.FC = () => {
                       Full-Time QA Role
                     </span>
                     <span className="px-2.5 py-0.5 rounded text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200">
-                      2 Years Duration
+                      1.5 Years Duration
                     </span>
                   </div>
                   <h3 className="text-xl md:text-2xl font-bold text-slate-900">

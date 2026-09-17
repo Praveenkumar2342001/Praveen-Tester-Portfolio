@@ -64,14 +64,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 </p>
                 <span className="text-slate-300">|</span>
                 <p className="text-sm sm:text-base font-semibold text-slate-600">
-                  2 Years of Professional Experience
+                  1.5 Years of Professional Experience
                 </p>
               </div>
             </div>
 
             {/* Short Professional Introduction */}
             <p className="text-base sm:text-lg text-slate-600 max-w-2xl leading-relaxed">
-              Detail-driven QA specialist with 2 years of proven testing experience verifying web
+              Detail-driven QA specialist with 1.5 years of proven testing experience verifying web
               applications, REST APIs, and database consistency. Experienced in requirement analysis,
               crafting comprehensive test scenarios, executing rigorous regression cycles, and
               reporting high-fidelity defects in Jira.
@@ -150,7 +150,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     <Briefcase className="w-3.5 h-3.5 text-emerald-600" />
                     <span>Experience</span>
                   </div>
-                  <p className="text-lg font-bold text-slate-900">2 Years</p>
+                  <p className="text-lg font-bold text-slate-900">{PERSONAL_PROFILE.experience}</p>
                   <p className="text-[11px] text-slate-500">Professional QA</p>
                 </div>
 

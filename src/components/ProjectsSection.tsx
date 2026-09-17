@@ -168,7 +168,7 @@ export const ProjectsSection: React.FC = () => {
             <div className="mt-6 flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-100">
               <div className="flex items-center gap-2 text-xs text-slate-500">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                <span>2 Years Manual QA Focus • Zero Automated Framework Claims</span>
+                <span>1.5 Years Manual QA Focus • Zero Automated Framework Claims</span>
               </div>
 
               <button
