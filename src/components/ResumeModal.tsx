@@ -85,6 +85,24 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
                   <Mail className="w-3 h-3 text-emerald-600" />
                   {PERSONAL_PROFILE.emailPlaceholder}
                 </span>
+                <span>•</span>
+                <a
+                  href={PERSONAL_PROFILE.linkedinPlaceholder}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-emerald-700 hover:underline"
+                >
+                  LinkedIn
+                </a>
+                <span>•</span>
+                <a
+                  href={PERSONAL_PROFILE.githubPlaceholder}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-emerald-700 hover:underline"
+                >
+                  GitHub
+                </a>
               </div>
             </div>
             <div className="text-right sm:border-l sm:border-slate-200 sm:pl-4">
