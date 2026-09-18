@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Mail,
   Linkedin,
@@ -15,8 +15,52 @@ import { PERSONAL_PROFILE } from '../data/portfolioData';
 
 export const ContactSection: React.FC = () => {
   const [copiedEmail, setCopiedEmail] = useState(false);
+  const [isMobile, setIsMobile] = useState<boolean>(() => {
+    if (typeof window === 'undefined') return false;
+    const userAgent = navigator.userAgent || '';
+    const mobileRegex = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+    const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    return mobileRegex.test(userAgent) || (hasTouch && window.innerWidth <= 768);
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      const userAgent = navigator.userAgent || '';
+      const mobileRegex = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+      const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      setIsMobile(mobileRegex.test(userAgent) || (hasTouch && window.innerWidth <= 768));
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const emailToDisplay = PERSONAL_PROFILE.emailPlaceholder;
+
+  const emailSubject = encodeURIComponent(`QA Opportunity - ${PERSONAL_PROFILE.name}`);
+  const emailBody = encodeURIComponent(
+    `Hi ${PERSONAL_PROFILE.name},\n\nI reviewed your Manual QA Tester portfolio and would like to connect regarding an opportunity.\n\nBest regards,`
+  );
+
+  // Desktop: opens Gmail web compose with pre-filled recipient and subject in a new tab
+  const gmailWebUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(emailToDisplay)}&su=${emailSubject}&body=${emailBody}`;
+
+  // Mobile: standard mailto URL which directly triggers the mobile Gmail or native Mail app
+  const mobileMailtoUrl = `mailto:${emailToDisplay}?subject=${emailSubject}&body=${emailBody}`;
+
+  const emailHref = isMobile ? mobileMailtoUrl : gmailWebUrl;
+
+  const handleEmailClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const userAgent = navigator.userAgent || '';
+    const mobileRegex = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+    const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    const isMobileDevice = mobileRegex.test(userAgent) || (hasTouch && window.innerWidth <= 768);
+
+    if (isMobileDevice) {
+      e.preventDefault();
+      window.location.href = mobileMailtoUrl;
+    }
+  };
 
   const copyEmailToClipboard = () => {
     navigator.clipboard.writeText(emailToDisplay);
@@ -58,10 +102,15 @@ export const ContactSection: React.FC = () => {
             </div>
             <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
               <a
-                href={`mailto:${emailToDisplay}`}
-                className="text-xs font-semibold text-emerald-700 hover:text-emerald-800 hover:underline"
+                href={emailHref}
+                onClick={handleEmailClick}
+                target={isMobile ? undefined : '_blank'}
+                rel={isMobile ? undefined : 'noopener noreferrer'}
+                className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-700 hover:text-emerald-800 hover:underline"
+                title={isMobile ? 'Open in Mobile Mail / Gmail App' : 'Open in Gmail compose (Web)'}
               >
-                Send Email
+                <span>Send Email</span>
+                <ExternalLink className="w-3 h-3" />
               </a>
               <button
                 onClick={copyEmailToClipboard}
@@ -147,8 +196,8 @@ export const ContactSection: React.FC = () => {
               ) : (
                 <span className="text-xs text-slate-400 font-mono">[Placeholder]</span>
               )}
-              <span className="text-[10px] font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
-                QA Artifacts
+              <span className="text-[10px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                Verified Repositories
               </span>
             </div>
           </div>
