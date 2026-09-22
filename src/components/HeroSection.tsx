@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   CheckCircle2,
   MapPin,
@@ -9,9 +9,12 @@ import {
   ShieldCheck,
   Bug,
   Terminal,
-  Database
+  Database,
+  Download,
+  Check
 } from 'lucide-react';
 import { PERSONAL_PROFILE } from '../data/portfolioData';
+import { generateAndDownloadCvPdf } from '../utils/generatePdfCv';
 
 interface HeroSectionProps {
   onViewProjects: () => void;
@@ -24,6 +27,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   onContactMe,
   candidateName
 }) => {
+  const [downloading, setDownloading] = useState(false);
+
+  const handleDownloadCV = () => {
+    try {
+      setDownloading(true);
+      generateAndDownloadCvPdf();
+      setTimeout(() => setDownloading(false), 2000);
+    } catch (err) {
+      console.error('Failed to download CV PDF:', err);
+      setDownloading(false);
+    }
+  };
   return (
     <section
       id="hero"
@@ -86,6 +101,26 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               >
                 <span>View Projects</span>
                 <ArrowRight className="w-4 h-4" />
+              </button>
+
+              <button
+                id="hero-btn-download-cv"
+                onClick={handleDownloadCV}
+                disabled={downloading}
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm shadow-xs hover:shadow-md transition-all cursor-pointer disabled:opacity-80"
+                title="Download Praveen Kumar P's complete CV in PDF format"
+              >
+                {downloading ? (
+                  <>
+                    <Check className="w-4 h-4 text-emerald-400 animate-pulse" />
+                    <span>Downloading PDF...</span>
+                  </>
+                ) : (
+                  <>
+                    <Download className="w-4 h-4 text-emerald-400" />
+                    <span>Download CV</span>
+                  </>
+                )}
               </button>
 
               <button
