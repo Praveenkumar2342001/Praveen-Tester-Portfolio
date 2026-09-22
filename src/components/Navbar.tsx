@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { CheckCircle2, Menu, X, FileText, Send } from 'lucide-react';
+import { CheckCircle2, Menu, X, FileText, Send, Download } from 'lucide-react';
+import { generateAndDownloadCvPdf } from '../utils/generatePdfCv';
 
 interface NavbarProps {
   onOpenResumePreview?: () => void;
@@ -121,7 +122,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResumePreview }) => {
           </nav>
 
           {/* Action CTAs */}
-          <div className="hidden sm:flex items-center gap-2.5">
+          <div className="hidden sm:flex items-center gap-2">
+            <button
+              id="btn-nav-download-cv"
+              onClick={generateAndDownloadCvPdf}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold shadow-xs transition-colors cursor-pointer"
+              title="Download Praveen Kumar P's CV in PDF format"
+            >
+              <Download className="w-3.5 h-3.5 text-emerald-400" />
+              <span>Download CV</span>
+            </button>
             {onOpenResumePreview && (
               <button
                 id="btn-resume-preview"
@@ -179,26 +189,39 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResumePreview }) => {
               </button>
             ))}
           </div>
-          <div className="pt-3 border-t border-slate-100 flex items-center gap-2">
-            {onOpenResumePreview && (
-              <button
-                id="mobile-btn-resume"
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenResumePreview();
-                }}
-                className="flex-1 py-2 rounded-md border border-slate-200 text-slate-700 text-xs font-medium text-center hover:bg-slate-50"
-              >
-                QA Summary Sheet
-              </button>
-            )}
+          <div className="pt-3 border-t border-slate-100 flex flex-col gap-2">
             <button
-              id="mobile-btn-contact"
-              onClick={() => scrollToSection('contact')}
-              className="flex-1 py-2 rounded-md bg-emerald-600 text-white text-xs font-semibold text-center hover:bg-emerald-700"
+              id="mobile-btn-download-cv"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                generateAndDownloadCvPdf();
+              }}
+              className="w-full flex items-center justify-center gap-2 py-2 rounded-md bg-slate-900 text-white text-xs font-semibold shadow-xs hover:bg-slate-800"
             >
-              Contact Me
+              <Download className="w-3.5 h-3.5 text-emerald-400" />
+              <span>Download CV (PDF)</span>
             </button>
+            <div className="flex items-center gap-2">
+              {onOpenResumePreview && (
+                <button
+                  id="mobile-btn-resume"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    onOpenResumePreview();
+                  }}
+                  className="flex-1 py-2 rounded-md border border-slate-200 text-slate-700 text-xs font-medium text-center hover:bg-slate-50"
+                >
+                  QA Summary Sheet
+                </button>
+              )}
+              <button
+                id="mobile-btn-contact"
+                onClick={() => scrollToSection('contact')}
+                className="flex-1 py-2 rounded-md bg-emerald-600 text-white text-xs font-semibold text-center hover:bg-emerald-700"
+              >
+                Contact Me
+              </button>
+            </div>
           </div>
         </div>
       )}
