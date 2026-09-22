@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   X,
   Printer,
@@ -8,7 +8,8 @@ import {
   Mail,
   Briefcase,
   FileCheck,
-  Award
+  Award,
+  Check
 } from 'lucide-react';
 import {
   PERSONAL_PROFILE,
@@ -17,6 +18,7 @@ import {
   PROFESSIONAL_EXPERIENCES,
   PROJECTS
 } from '../data/portfolioData';
+import { generateAndDownloadCvPdf } from '../utils/generatePdfCv';
 
 interface ResumeModalProps {
   isOpen: boolean;
@@ -29,7 +31,20 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
   onClose,
   candidateName
 }) => {
+  const [downloading, setDownloading] = useState(false);
+
   if (!isOpen) return null;
+
+  const handleDownload = () => {
+    try {
+      setDownloading(true);
+      generateAndDownloadCvPdf();
+      setTimeout(() => setDownloading(false), 2000);
+    } catch (err) {
+      console.error('Error generating PDF:', err);
+      setDownloading(false);
+    }
+  };
 
   const handlePrint = () => {
     window.print();
@@ -48,12 +63,31 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
           </div>
           <div className="flex items-center gap-2">
             <button
+              id="resume-modal-download-btn"
+              onClick={handleDownload}
+              disabled={downloading}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-semibold bg-emerald-600 hover:bg-emerald-700 text-white cursor-pointer transition-colors shadow-xs"
+              title="Download Praveen Kumar P's complete CV in PDF format"
+            >
+              {downloading ? (
+                <>
+                  <Check className="w-3.5 h-3.5 text-white animate-pulse" />
+                  <span>Downloading...</span>
+                </>
+              ) : (
+                <>
+                  <Download className="w-3.5 h-3.5 text-white" />
+                  <span>Download CV (PDF)</span>
+                </>
+              )}
+            </button>
+            <button
               onClick={handlePrint}
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-semibold bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 cursor-pointer transition-colors"
               title="Print / Save as PDF"
             >
               <Printer className="w-3.5 h-3.5" />
-              <span>Print Summary</span>
+              <span className="hidden sm:inline">Print</span>
             </button>
             <button
               onClick={onClose}
@@ -198,13 +232,24 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
 
         {/* Footer */}
         <div className="px-6 py-3 bg-slate-50 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500">
-          <span>Confidential Recruiter Document Preview</span>
-          <button
-            onClick={onClose}
-            className="px-4 py-1.5 rounded-md bg-slate-900 text-white font-semibold hover:bg-slate-800 cursor-pointer"
-          >
-            Close
-          </button>
+          <span>Official CV & Competency Profile Preview</span>
+          <div className="flex items-center gap-2">
+            <button
+              id="resume-modal-footer-download-btn"
+              onClick={handleDownload}
+              disabled={downloading}
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-md bg-emerald-600 hover:bg-emerald-700 text-white font-semibold cursor-pointer shadow-xs transition-colors"
+            >
+              <Download className="w-3.5 h-3.5" />
+              <span>{downloading ? 'Preparing PDF...' : 'Download PDF CV'}</span>
+            </button>
+            <button
+              onClick={onClose}
+              className="px-4 py-1.5 rounded-md bg-slate-900 text-white font-semibold hover:bg-slate-800 cursor-pointer"
+            >
+              Close
+            </button>
+          </div>
         </div>
       </div>
     </div>
